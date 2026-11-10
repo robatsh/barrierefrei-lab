@@ -1,0 +1,19 @@
+{
+  "name": "a11y-scanner-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "setup": "npm --prefix browser ci && npx --prefix browser playwright install chromium",
+    "test": "npm --prefix browser test",
+    "test:browser": "npm --prefix browser run test:browser",
+    "test:cli": "npm --prefix browser run test:cli",
+    "test:desktop": "npm --prefix browser run test:desktop",
+    "test:report-ui": "npm --prefix browser run test:report-ui",
+    "desktop": "cd desktop && tauri dev",
+    "desktop:build": "cd desktop && tauri build --no-bundle",
+    "fixture": "node browser/fixtures/server.mjs"
+  },
+  "devDependencies": { "@tauri-apps/cli": "^2.0.0" }
+}

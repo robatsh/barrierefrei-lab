@@ -1,0 +1,461 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/a11y-scanner/report-1.0.schema.json",
+  "title": "A11yScanner report v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "tool",
+    "startedAt",
+    "finishedAt",
+    "request",
+    "scope",
+    "summary",
+    "pages",
+    "limitations"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version",
+        "axeVersion"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "axeVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "startedAt": {
+      "type": "string"
+    },
+    "finishedAt": {
+      "type": "string"
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "startUrl",
+        "maxPages",
+        "maxDepth",
+        "timeoutMs",
+        "settleMs",
+        "delayMs"
+      ],
+      "properties": {
+        "startUrl": {
+          "type": "string"
+        },
+        "maxPages": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "maxDepth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 60000
+        },
+        "settleMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5000
+        },
+        "delayMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5000
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "origin",
+        "tags",
+        "viewport",
+        "robotsPolicy",
+        "robotsExcluded",
+        "truncated"
+      ],
+      "properties": {
+        "origin": {
+          "type": "string"
+        },
+        "tags": {
+          "$ref": "#/definitions/strings"
+        },
+        "viewport": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "width",
+            "height"
+          ],
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "robotsPolicy": {
+          "enum": [
+            "respect-fail-closed",
+            "ignored"
+          ]
+        },
+        "robotsExcluded": {
+          "$ref": "#/definitions/strings"
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scanned",
+        "errors",
+        "skipped",
+        "violationRules",
+        "violationNodes",
+        "reviewRules"
+      ],
+      "properties": {
+        "scanned": {
+          "$ref": "#/definitions/count"
+        },
+        "errors": {
+          "$ref": "#/definitions/count"
+        },
+        "skipped": {
+          "$ref": "#/definitions/count"
+        },
+        "violationRules": {
+          "$ref": "#/definitions/count"
+        },
+        "violationNodes": {
+          "$ref": "#/definitions/count"
+        },
+        "reviewRules": {
+          "$ref": "#/definitions/count"
+        }
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/page"
+      },
+      "maxItems": 100
+    },
+    "limitations": {
+      "$ref": "#/definitions/strings"
+    },
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "standard",
+          "level",
+          "title",
+          "guidance",
+          "condition",
+          "source",
+          "enClause",
+          "status",
+          "notes",
+          "findings"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "standard": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "guidance": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "enClause": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "unreviewed",
+              "failed",
+              "passed",
+              "notApplicable"
+            ]
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "url",
+                "ruleId",
+                "kind",
+                "nodes"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "ruleId": {
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "violations",
+                    "incomplete"
+                  ]
+                },
+                "nodes": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "strings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selector": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/selector"
+          }
+        }
+      ]
+    },
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target",
+        "html",
+        "failureSummary",
+        "checks"
+      ],
+      "properties": {
+        "target": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/selector"
+          }
+        },
+        "html": {
+          "type": "string"
+        },
+        "failureSummary": {
+          "type": "string"
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "message"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "impact",
+        "help",
+        "description",
+        "helpUrl",
+        "tags",
+        "suggestion",
+        "nodes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "impact": {
+          "enum": [
+            null,
+            "minor",
+            "moderate",
+            "serious",
+            "critical"
+          ]
+        },
+        "help": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "helpUrl": {
+          "type": "string"
+        },
+        "tags": {
+          "$ref": "#/definitions/strings"
+        },
+        "suggestion": {
+          "type": "string"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/node"
+          }
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "finalUrl",
+        "depth",
+        "status",
+        "httpStatus",
+        "title",
+        "error",
+        "violations",
+        "incomplete",
+        "passes",
+        "inapplicable"
+      ],
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "finalUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "depth": {
+          "$ref": "#/definitions/count"
+        },
+        "status": {
+          "enum": [
+            "ok",
+            "error",
+            "skipped"
+          ]
+        },
+        "httpStatus": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 100,
+          "maximum": 599
+        },
+        "title": {
+          "type": "string"
+        },
+        "error": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "violations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/rule"
+          }
+        },
+        "incomplete": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/rule"
+          }
+        },
+        "passes": {
+          "$ref": "#/definitions/count"
+        },
+        "inapplicable": {
+          "$ref": "#/definitions/count"
+        }
+      }
+    }
+  }
+}

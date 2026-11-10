@@ -1,0 +1,2228 @@
+{
+  "schemaVersion": "1.0",
+  "tool": {
+    "name": "A11yScanner",
+    "version": "0.1.0",
+    "axeVersion": "4.14.0"
+  },
+  "startedAt": "2026-11-09T15:23:09.760Z",
+  "finishedAt": "2026-11-09T15:23:15.687Z",
+  "request": {
+    "startUrl": "http://127.0.0.1:4177/",
+    "maxPages": 10,
+    "maxDepth": 2,
+    "timeoutMs": 10000,
+    "settleMs": 100,
+    "delayMs": 0
+  },
+  "scope": {
+    "origin": "http://127.0.0.1:4177",
+    "tags": [
+      "wcag2a",
+      "wcag2aa",
+      "wcag21a",
+      "wcag21aa",
+      "wcag22aa",
+      "best-practice"
+    ],
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "robotsPolicy": "ignored",
+    "robotsExcluded": [],
+    "truncated": false
+  },
+  "summary": {
+    "scanned": 3,
+    "errors": 1,
+    "skipped": 0,
+    "violationRules": 6,
+    "violationNodes": 6,
+    "reviewRules": 0
+  },
+  "pages": [
+    {
+      "url": "http://127.0.0.1:4177/",
+      "finalUrl": "http://127.0.0.1:4177/",
+      "depth": 0,
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Fehlerhafte Testseite",
+      "error": null,
+      "violations": [
+        {
+          "id": "button-name",
+          "impact": "critical",
+          "help": "Buttons must have discernible text",
+          "description": "Ensure buttons have discernible text",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/button-name?application=axeAPI",
+          "tags": [
+            "cat.name-role-value",
+            "wcag2a",
+            "wcag412",
+            "section508",
+            "section508.22.a",
+            "TTv5",
+            "TT6.a",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "ACT",
+            "RGAAv4",
+            "RGAA-11.9.1"
+          ],
+          "suggestion": "Dem Button einen verständlichen sichtbaren Text oder einen passenden zugänglichen Namen geben.",
+          "nodes": [
+            {
+              "target": [
+                "button"
+              ],
+              "html": "<button></button>",
+              "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "checks": [
+                {
+                  "id": "button-has-visible-text",
+                  "message": "Element does not have inner text that is visible to screen readers"
+                },
+                {
+                  "id": "aria-label",
+                  "message": "aria-label attribute does not exist or is empty"
+                },
+                {
+                  "id": "aria-labelledby",
+                  "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+                },
+                {
+                  "id": "non-empty-title",
+                  "message": "Element has no title attribute"
+                },
+                {
+                  "id": "implicit-label",
+                  "message": "Element does not have an implicit (wrapped) <label>"
+                },
+                {
+                  "id": "explicit-label",
+                  "message": "Element does not have an explicit <label>"
+                },
+                {
+                  "id": "presentational-role",
+                  "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=axeAPI",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "suggestion": "Text- und Hintergrundfarbe so anpassen, dass der erforderliche Kontrast erreicht wird; alle Zustände prüfen.",
+          "nodes": [
+            {
+              "target": [
+                "p"
+              ],
+              "html": "<p style=\"color:#aaa;background:#fff\">Text mit schwachem Kontrast</p>",
+              "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.32 (foreground color: #aaaaaa, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+              "checks": [
+                {
+                  "id": "color-contrast",
+                  "message": "Element has insufficient color contrast of 2.32 (foreground color: #aaaaaa, background color: #ffffff, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "html-has-lang",
+          "impact": "serious",
+          "help": "<html> element must have a lang attribute",
+          "description": "Ensure every HTML document has a lang attribute",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/html-has-lang?application=axeAPI",
+          "tags": [
+            "cat.language",
+            "wcag2a",
+            "wcag311",
+            "TTv5",
+            "TT11.a",
+            "EN-301-549",
+            "EN-9.3.1.1",
+            "ACT",
+            "RGAAv4",
+            "RGAA-8.3.1"
+          ],
+          "suggestion": "Die hauptsächliche Seitensprache im lang-Attribut des html-Elements angeben.",
+          "nodes": [
+            {
+              "target": [
+                "html"
+              ],
+              "html": "<html>",
+              "failureSummary": "Fix any of the following:\n  The <html> element does not have a lang attribute",
+              "checks": [
+                {
+                  "id": "has-lang",
+                  "message": "The <html> element does not have a lang attribute"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "image-alt",
+          "impact": "critical",
+          "help": "Images must have alternative text",
+          "description": "Ensure <img> elements have alternative text or a role of none or presentation",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/image-alt?application=axeAPI",
+          "tags": [
+            "cat.text-alternatives",
+            "wcag2a",
+            "wcag111",
+            "section508",
+            "section508.22.a",
+            "TTv5",
+            "TT7.a",
+            "TT7.b",
+            "EN-301-549",
+            "EN-9.1.1.1",
+            "ACT",
+            "RGAAv4",
+            "RGAA-1.1.1"
+          ],
+          "suggestion": "Inhaltlichen Bildern einen passenden Alternativtext geben; rein dekorative Bilder mit alt=\"\" kennzeichnen.",
+          "nodes": [
+            {
+              "target": [
+                "img"
+              ],
+              "html": "<img src=\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\">",
+              "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "checks": [
+                {
+                  "id": "has-alt",
+                  "message": "Element does not have an alt attribute"
+                },
+                {
+                  "id": "aria-label",
+                  "message": "aria-label attribute does not exist or is empty"
+                },
+                {
+                  "id": "aria-labelledby",
+                  "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+                },
+                {
+                  "id": "non-empty-title",
+                  "message": "Element has no title attribute"
+                },
+                {
+                  "id": "presentational-role",
+                  "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "label",
+          "impact": "critical",
+          "help": "Form elements must have labels",
+          "description": "Ensure every form element has a label",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label?application=axeAPI",
+          "tags": [
+            "cat.forms",
+            "wcag2a",
+            "wcag412",
+            "section508",
+            "section508.22.n",
+            "TTv5",
+            "TT5.c",
+            "EN-301-549",
+            "EN-9.4.1.2",
+            "ACT",
+            "RGAAv4",
+            "RGAA-11.1.1"
+          ],
+          "suggestion": "Das Eingabefeld mit einem sichtbaren label und passender for/id-Zuordnung verbinden.",
+          "nodes": [
+            {
+              "target": [
+                "input"
+              ],
+              "html": "<input type=\"text\">",
+              "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
+              "checks": [
+                {
+                  "id": "implicit-label",
+                  "message": "Element does not have an implicit (wrapped) <label>"
+                },
+                {
+                  "id": "explicit-label",
+                  "message": "Element does not have an explicit <label>"
+                },
+                {
+                  "id": "aria-label",
+                  "message": "aria-label attribute does not exist or is empty"
+                },
+                {
+                  "id": "aria-labelledby",
+                  "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+                },
+                {
+                  "id": "non-empty-title",
+                  "message": "Element has no title attribute"
+                },
+                {
+                  "id": "non-empty-placeholder",
+                  "message": "Element has no placeholder attribute"
+                },
+                {
+                  "id": "presentational-role",
+                  "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "target-size",
+          "impact": "serious",
+          "help": "All touch targets must be 24px large, or leave sufficient space",
+          "description": "Ensure touch targets have sufficient size and space",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/target-size?application=axeAPI",
+          "tags": [
+            "cat.sensory-and-visual-cues",
+            "wcag22aa",
+            "wcag258",
+            "EN-301-549v4",
+            "EN-9.2.5.8"
+          ],
+          "suggestion": "Die Regelbeschreibung und die Hinweise am Element prüfen; eine passende Korrektur umsetzen und erneut testen.",
+          "nodes": [
+            {
+              "target": [
+                "button"
+              ],
+              "html": "<button></button>",
+              "failureSummary": "Fix any of the following:\n  Target has insufficient size (16px by 6px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 16px instead of at least 24px.",
+              "checks": [
+                {
+                  "id": "target-size",
+                  "message": "Target has insufficient size (16px by 6px, should be at least 24px by 24px)"
+                },
+                {
+                  "id": "target-offset",
+                  "message": "Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 16px instead of at least 24px."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "incomplete": [],
+      "passes": 19,
+      "inapplicable": 68
+    },
+    {
+      "url": "http://127.0.0.1:4177/good",
+      "finalUrl": "http://127.0.0.1:4177/good",
+      "depth": 1,
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Gute Testseite",
+      "error": null,
+      "violations": [],
+      "incomplete": [],
+      "passes": 21,
+      "inapplicable": 70
+    },
+    {
+      "url": "http://127.0.0.1:4177/private",
+      "finalUrl": "http://127.0.0.1:4177/private",
+      "depth": 1,
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "robots-gesperrte Testseite",
+      "error": null,
+      "violations": [],
+      "incomplete": [],
+      "passes": 13,
+      "inapplicable": 78
+    },
+    {
+      "url": "http://127.0.0.1:4177/missing",
+      "finalUrl": "http://127.0.0.1:4177/missing",
+      "depth": 1,
+      "status": "error",
+      "httpStatus": 404,
+      "title": "",
+      "error": "HTTP 404",
+      "violations": [],
+      "incomplete": [],
+      "passes": 0,
+      "inapplicable": 0
+    }
+  ],
+  "coverage": [
+    {
+      "id": "1.1.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Textalternativen",
+      "guidance": "Bilder, Icons und Bedienelemente im Kontext mit Screenreader prüfen; dekorative Bilder ausnehmen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.1.1",
+      "status": "failed",
+      "notes": "",
+      "findings": [
+        {
+          "url": "http://127.0.0.1:4177/",
+          "ruleId": "image-alt",
+          "kind": "violations",
+          "nodes": 1
+        }
+      ]
+    },
+    {
+      "id": "1.2.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Audio und Video ohne Gegenspur",
+      "guidance": "Für reine Audio- oder Videoaufnahmen eine gleichwertige zugängliche Alternative prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.2.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.2.2",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Untertitel für Aufzeichnungen",
+      "guidance": "Untertitel vollständig ansehen und Sprache, Geräusche sowie Sprecherwechsel abgleichen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.2.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.2.3",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Audiodeskription oder Medienalternative",
+      "guidance": "Visuelle Informationen einer Aufzeichnung mit Audiodeskription oder vollständiger Medienalternative vergleichen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.2.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.2.4",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Live-Untertitel",
+      "guidance": "Live-Angebote auf verfügbare und verständliche Untertitel prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.2.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.2.5",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Audiodeskription für Aufzeichnungen",
+      "guidance": "Prüfen, ob wichtige visuelle Informationen im Ton oder einer Audiodeskription enthalten sind.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.2.5",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.3.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Struktur und Beziehungen",
+      "guidance": "Überschriften, Listen, Tabellen, Gruppen und Formularbeschriftungen mit Screenreader prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.3.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.3.2",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Sinnvolle Reihenfolge",
+      "guidance": "Lesereihenfolge ohne Gestaltung und mit Screenreader mit der Bedeutung vergleichen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.3.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.3.3",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Sensorische Hinweise",
+      "guidance": "Anweisungen dürfen nicht allein auf Position, Form, Farbe oder Klang beruhen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.3.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.3.4",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Bildschirmausrichtung",
+      "guidance": "Hoch- und Querformat testen; Einschränkungen auf sachliche Notwendigkeit prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.3.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.3.5",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Zweck persönlicher Eingaben",
+      "guidance": "Eingabefelder für persönliche Daten auf passende programmatische Zweckangaben prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.3.5",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.4.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Farbe als Information",
+      "guidance": "Fehler, Links und Zustände müssen auch ohne Farbwahrnehmung unterscheidbar sein.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.4.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.4.2",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Automatisch startender Ton",
+      "guidance": "Automatischen Ton auf Abschaltmöglichkeit oder unabhängige Lautstärkeregelung prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.4.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.4.3",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Textkontrast",
+      "guidance": "Text einschließlich Platzhaltern und Interaktionszuständen gegen den tatsächlichen Hintergrund prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.4.3",
+      "status": "failed",
+      "notes": "",
+      "findings": [
+        {
+          "url": "http://127.0.0.1:4177/",
+          "ruleId": "color-contrast",
+          "kind": "violations",
+          "nodes": 1
+        }
+      ]
+    },
+    {
+      "id": "1.4.4",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Textvergrößerung",
+      "guidance": "Text auf 200 Prozent vergrößern; Inhalte und Funktionen müssen nutzbar bleiben.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.4.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.4.5",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Schriftgrafiken",
+      "guidance": "Text in Bildern auf vermeidbare Verwendung und zulässige Ausnahmen prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.4.5",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.4.10",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Umbruch bei Vergrößerung",
+      "guidance": "Bei 320 CSS-Pixel Breite beziehungsweise 256 CSS-Pixel Höhe prüfen; sachliche Ausnahmen dokumentieren.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.4.10",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.4.11",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Kontrast von Grafik und Bedienung",
+      "guidance": "Grenzen, Zustände und bedeutungstragende Grafiken auf ausreichenden Kontrast prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.4.11",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.4.12",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Angepasste Textabstände",
+      "guidance": "Zeilenhöhe 1,5, Absatzabstand 2, Zeichenabstand 0,12 und Wortabstand 0,16 em ohne Verlust testen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.4.12",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "1.4.13",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Inhalte bei Hover und Fokus",
+      "guidance": "Zusatzinhalte auf Schließbarkeit, Erreichbarkeit mit Zeiger und dauerhafte Anzeige prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.1.4.13",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.1.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Tastaturbedienung",
+      "guidance": "Alle Funktionen mit Tastatur einschließlich Dialogen, Menüs und Formularen durchlaufen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.1.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.1.2",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Keine Tastaturfalle",
+      "guidance": "Jeden Bereich betreten und wieder verlassen; nötige besondere Tastenkombinationen müssen erklärt sein.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.1.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.1.4",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Einzelzeichen-Tastenkürzel",
+      "guidance": "Kürzel auf Abschaltbarkeit, Umbelegung oder Beschränkung auf fokussierte Komponenten prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.1.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.2.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Zeitbegrenzungen",
+      "guidance": "Sitzungen und Formulare auf Abschaltbarkeit, Anpassung oder rechtzeitige Verlängerung prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.2.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.2.2",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Bewegte und aktualisierte Inhalte",
+      "guidance": "Automatische Bewegung und Aktualisierung auf Pausieren, Stoppen oder Ausblenden prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.2.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.3.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Blitzende Inhalte",
+      "guidance": "Animationen und Videos auf gefährliche Blitzfolgen fachlich prüfen; nicht durch ungeschützte Betrachtung testen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.3.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.4.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Wiederholte Bereiche überspringen",
+      "guidance": "Sprunglinks, Landmarken oder andere wirksame Mechanismen mit Tastatur prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.4.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.4.2",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Aussagekräftiger Seitentitel",
+      "guidance": "Titel auf verständliche Beschreibung von Thema und Zweck jeder Seite prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.4.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.4.3",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Fokusreihenfolge",
+      "guidance": "Tab-Reihenfolge und Fokusführung bei Dialogen sowie dynamischen Änderungen durchlaufen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.4.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.4.4",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Linkzweck im Kontext",
+      "guidance": "Links mit Screenreader lesen und ihren Zweck aus Text und programmatischem Kontext bestimmen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.4.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.4.5",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Mehrere Zugangswege",
+      "guidance": "Alternative Wege wie Suche, Inhaltsverzeichnis oder Sitemap außerhalb abgeschlossener Prozesse prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.4.5",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.4.6",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Überschriften und Beschriftungen",
+      "guidance": "Überschriften und Labels müssen Thema beziehungsweise Zweck verständlich beschreiben.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.4.6",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.4.7",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Sichtbarer Tastaturfokus",
+      "guidance": "Alle interaktiven Elemente mit Tastatur durchlaufen und den sichtbaren Fokus kontrollieren.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.4.7",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.5.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Einfache Zeigergesten",
+      "guidance": "Mehrfinger- und Pfadgesten auf gleichwertige einfache Zeigerbedienung prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.5.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.5.2",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Abbrechbare Zeigereingaben",
+      "guidance": "Auslösen beim Drücken prüfen; Abbrechen oder Rückgängigmachen muss im erforderlichen Umfang möglich sein.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.5.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.5.3",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Sichtbare Beschriftung im Namen",
+      "guidance": "Sichtbaren Text mit dem zugänglichen Namen vergleichen und Sprachbedienung erproben.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.5.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "2.5.4",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Bewegungssteuerung",
+      "guidance": "Durch Gerätebewegung ausgelöste Funktionen auf Alternative und Abschaltbarkeit prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.2.5.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "3.1.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Seitensprache",
+      "guidance": "Programmatisch gesetzte Hauptsprache mit dem Inhalt und der Screenreader-Aussprache vergleichen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.3.1.1",
+      "status": "failed",
+      "notes": "",
+      "findings": [
+        {
+          "url": "http://127.0.0.1:4177/",
+          "ruleId": "html-has-lang",
+          "kind": "violations",
+          "nodes": 1
+        }
+      ]
+    },
+    {
+      "id": "3.1.2",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Sprachwechsel",
+      "guidance": "Anderssprachige Abschnitte auf korrekte Sprachauszeichnung prüfen; Ausnahmen berücksichtigen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.3.1.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "3.2.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Verhalten beim Fokussieren",
+      "guidance": "Fokus allein darf keinen unerwarteten Kontextwechsel auslösen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.3.2.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "3.2.2",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Verhalten bei Eingaben",
+      "guidance": "Eingaben und Auswahländerungen auf angekündigte beziehungsweise vermeidbare Kontextwechsel prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.3.2.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "3.2.3",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Konsistente Navigation",
+      "guidance": "Wiederkehrende Navigation über mehrere Seiten auf gleiche relative Reihenfolge prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.3.2.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "3.2.4",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Konsistente Bezeichnung",
+      "guidance": "Gleiche Funktionen über mehrere Seiten auf einheitliche Benennung prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.3.2.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "3.3.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Fehler erkennen",
+      "guidance": "Ungültige Eingaben absenden und verständliche textliche Fehlerzuordnung prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.3.3.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "3.3.2",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Labels und Hinweise",
+      "guidance": "Erforderliche Formate, Pflichtfelder und Eingabehinweise vor der Eingabe prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.3.3.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "3.3.3",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Korrekturvorschläge",
+      "guidance": "Fehlersituationen erzeugen und hilfreiche Korrekturhinweise prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.3.3.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "3.3.4",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Fehler bei wichtigen Vorgängen vermeiden",
+      "guidance": "Rechtliche, finanzielle und relevante Datenänderungen auf Rücknahme, Kontrolle oder Bestätigung prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.3.3.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "4.1.1",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Syntax und Parsing",
+      "guidance": "Für EN 301 549 V3.2.1 gesondert prüfen; in der aktualisierten WCAG 2.1 entfernt. Ein axe-Scan ersetzt diese Prüfung nicht.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.4.1.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "4.1.2",
+      "standard": "WCAG 2.1",
+      "level": "A",
+      "title": "Name, Rolle und Wert",
+      "guidance": "Eigene Komponenten mit Accessibility Tree und Screenreader auf Namen, Rolle, Werte und Zustandsänderungen prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.4.1.2",
+      "status": "failed",
+      "notes": "",
+      "findings": [
+        {
+          "url": "http://127.0.0.1:4177/",
+          "ruleId": "button-name",
+          "kind": "violations",
+          "nodes": 1
+        },
+        {
+          "url": "http://127.0.0.1:4177/",
+          "ruleId": "label",
+          "kind": "violations",
+          "nodes": 1
+        }
+      ]
+    },
+    {
+      "id": "4.1.3",
+      "standard": "WCAG 2.1",
+      "level": "AA",
+      "title": "Statusmeldungen",
+      "guidance": "Erfolg, Fehler, Fortschritt und Aktualisierungen ohne Fokuswechsel mit Screenreader prüfen.",
+      "condition": "Für die ausgewählten Seiten und vollständigen Nutzerabläufe prüfen; Ausnahmen begründen.",
+      "source": "https://www.w3.org/TR/WCAG21/",
+      "enClause": "9.4.1.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "5.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Zugänglichkeitsfunktionen aktivieren",
+      "condition": "Dokumentierte Hilfsfunktionen",
+      "guidance": "Aktivierung ohne unzugängliche Bedienschritte erproben.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "5.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "5.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Alternativen zur Biometrie",
+      "condition": "Biometrische Identifikation",
+      "guidance": "Gleichwertigen Zugang ohne bestimmtes biologisches Merkmal prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "5.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "5.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Informationen bei Konvertierung erhalten",
+      "condition": "Konvertierung von Inhalten",
+      "guidance": "Struktur und zugängliche Informationen vor und nach Umwandlung vergleichen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "5.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Sprachübertragung",
+      "condition": "Zweiwege-Sprachkommunikation",
+      "guidance": "Übertragene Sprachqualität anhand der Normanforderung prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.1.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Echtzeittext anbieten",
+      "condition": "Zweiwege-Sprachkommunikation",
+      "guidance": "Verfügbarkeit einer normgerechten Echtzeittext-Kommunikation prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.1.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.1.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Sprache und Text gleichzeitig",
+      "condition": "Sprache und Echtzeittext",
+      "guidance": "Gleichzeitige Nutzung beider Kommunikationswege testen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.1.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.2.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Textströme unterscheiden",
+      "condition": "Echtzeittext",
+      "guidance": "Ein- und ausgehenden Text visuell unterscheiden können.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.2.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.2.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Textrichtung auslesbar",
+      "condition": "Echtzeittext",
+      "guidance": "Sende- und Empfangsrichtung mit assistiver Technik prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.2.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.2.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Text-Sprecher zuordnen",
+      "condition": "Echtzeittext mit Sprechererkennung",
+      "guidance": "Sprecherzuordnung für Text und Sprache vergleichen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.2.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.2.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Sprachaktivität beim Textchat",
+      "condition": "Sprache und Echtzeittext",
+      "guidance": "Sichtbare Anzeige eingehender Sprachaktivität testen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.2.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.3.a",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Echtzeittext: Interoperabilität a)",
+      "condition": "Echtzeittext mit Verbindung zu anderen Kommunikationssystemen",
+      "guidance": "Verwendete Netz- und Protokollart feststellen und Interoperabilität nach dem entsprechenden Teil von Klausel 6.2.3 nachweisen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.3.a",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.3.b",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Echtzeittext: Interoperabilität b)",
+      "condition": "Echtzeittext mit Verbindung zu anderen Kommunikationssystemen",
+      "guidance": "Verwendete Netz- und Protokollart feststellen und Interoperabilität nach dem entsprechenden Teil von Klausel 6.2.3 nachweisen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.3.b",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.3.c",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Echtzeittext: Interoperabilität c)",
+      "condition": "Echtzeittext mit Verbindung zu anderen Kommunikationssystemen",
+      "guidance": "Verwendete Netz- und Protokollart feststellen und Interoperabilität nach dem entsprechenden Teil von Klausel 6.2.3 nachweisen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.3.c",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.3.d",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Echtzeittext: Interoperabilität d)",
+      "condition": "Echtzeittext mit Verbindung zu anderen Kommunikationssystemen",
+      "guidance": "Verwendete Netz- und Protokollart feststellen und Interoperabilität nach dem entsprechenden Teil von Klausel 6.2.3 nachweisen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.3.d",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.2.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Text zeitnah übertragen",
+      "condition": "Echtzeittext-Eingabe",
+      "guidance": "Verzögerung zwischen Eingabe und Übertragung messen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.2.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Anrufer erkennen",
+      "condition": "Anruferidentifikation",
+      "guidance": "Anruferinformationen auch textlich und programmatisch zugänglich prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Sprachdienste alternativ nutzen",
+      "condition": "Mailbox oder sprachgesteuerte Dienste",
+      "guidance": "Gleichwertige Bedienung ohne Sprechen und Hören erproben.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.5.2.a",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Videodetails erkennen",
+      "condition": "Zweiwege-Video",
+      "guidance": "Auflösung im tatsächlichen Kommunikationsbetrieb messen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.5.2.a",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.5.3.a",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Videobewegung erkennen",
+      "condition": "Zweiwege-Video",
+      "guidance": "Bildrate im tatsächlichen Kommunikationsbetrieb messen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.5.3.a",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.5.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Bild und Sprache abstimmen",
+      "condition": "Zweiwege-Video mit Ton",
+      "guidance": "Zeitliche Abstimmung von Ton und Video prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.5.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.5.5",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Tonaktivität im Video erkennen",
+      "condition": "Zweiwege-Video mit Ton",
+      "guidance": "Sichtbare Sprachaktivitätsanzeige testen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.5.5",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "6.5.6",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Sprecher im Video erkennen",
+      "condition": "Video mit Sprecherzuordnung",
+      "guidance": "Sprecherwechsel für Gebärdensprachkommunikation nachvollziehen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "6.5.6",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "7.1.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Untertitel wiedergeben",
+      "condition": "Video mit Ton",
+      "guidance": "Verfügbarkeit und Wiedergabe der Untertitel testen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "7.1.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "7.1.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Untertitel zeitlich abstimmen",
+      "condition": "Untertitel",
+      "guidance": "Zeitliche Zuordnung zur Medienwiedergabe prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "7.1.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "7.1.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Untertitel erhalten",
+      "condition": "Video-Umwandlung oder Übertragung",
+      "guidance": "Untertitel vor und nach Verarbeitung vergleichen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "7.1.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "7.1.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Untertitel anpassen",
+      "condition": "Untertitel",
+      "guidance": "Lesbarkeit und angebotene Darstellungseinstellungen prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "7.1.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "7.1.5",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Untertitel vorlesen",
+      "condition": "Video mit Ton",
+      "guidance": "Gesprochene Ausgabe der Untertitel gemäß Norm prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "7.1.5",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "7.2.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Audiodeskription abspielen",
+      "condition": "Video mit Ton",
+      "guidance": "Auswahl und Wiedergabe einer Audiodeskriptionsspur testen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "7.2.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "7.2.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Audiodeskription abstimmen",
+      "condition": "Audiodeskription",
+      "guidance": "Zeitliche Zuordnung zur Handlung prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "7.2.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "7.2.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Audiodeskription erhalten",
+      "condition": "Video-Umwandlung oder Übertragung",
+      "guidance": "Beschreibungsspur vor und nach Verarbeitung vergleichen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "7.2.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "7.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Medienhilfen direkt bedienen",
+      "condition": "Angebot vorwiegend mit Videos",
+      "guidance": "Bedienwege zum Einschalten von Untertiteln und Beschreibung prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "7.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "9.6",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Konformitätsbedingungen",
+      "condition": "Gesamtes Webangebot",
+      "guidance": "Vollständige Seiten, komplette Prozesse, unterstützte Techniken und Nichtbeeinträchtigung gesondert bewerten.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "9.6",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "11.7",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Nutzereinstellungen berücksichtigen",
+      "condition": "Weboberfläche",
+      "guidance": "Relevante Plattformvorgaben für Darstellung übernehmen und Verhalten nach Norm prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "11.7",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "11.8.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Technik zur Inhaltserstellung",
+      "condition": "Webbasierter Editor",
+      "guidance": "Ausgabetechnik auf Unterstützung zugänglicher Inhalte prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "11.8.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "11.8.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Zugängliche Inhalte erstellen",
+      "condition": "Webbasierter Editor",
+      "guidance": "Autoren beim Erstellen zugänglicher Ausgaben unterstützen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "11.8.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "11.8.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Informationen im Editor erhalten",
+      "condition": "Webbasierter Editor mit Umwandlung",
+      "guidance": "Zugängliche Informationen bei Bearbeitung und Umwandlung erhalten.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "11.8.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "11.8.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Reparatur unterstützen",
+      "condition": "Webbasierter Editor mit Prüfung",
+      "guidance": "Hinweise und Hilfen zum Beheben erkannter Barrieren erproben.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "11.8.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "11.8.5",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Zugängliche Vorlagen",
+      "condition": "Webbasierter Editor mit Vorlagen",
+      "guidance": "Vorlagen und deren erzeugte Inhalte separat prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "11.8.5",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "12.1.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Hilfsfunktionen dokumentieren",
+      "condition": "Produktdokumentation",
+      "guidance": "Verfügbare Zugänglichkeits- und Kompatibilitätsfunktionen nachvollziehbar beschreiben.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "12.1.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "12.1.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Dokumentation zugänglich anbieten",
+      "condition": "Produktdokumentation",
+      "guidance": "Dokumentationsformate gesondert auf Zugänglichkeit prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "12.1.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "12.2.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Support informiert über Hilfen",
+      "condition": "Supportangebot",
+      "guidance": "Auskunft zu Zugänglichkeits- und Kompatibilitätsfunktionen prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "12.2.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "12.2.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Support erreichbar gestalten",
+      "condition": "Supportangebot",
+      "guidance": "Kommunikationswege für unterschiedliche Einschränkungen erproben.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "12.2.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "12.2.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Zusatz",
+      "title": "Supportmaterial zugänglich anbieten",
+      "condition": "Supportdokumentation",
+      "guidance": "Bereitgestellte Anleitungen und Materialien gesondert prüfen.",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "12.2.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.1.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Textalternativen",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Bilder, Icons und Bedienelemente im Kontext mit Screenreader prüfen; dekorative Bilder ausnehmen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.1.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.2.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Audio und Video ohne Gegenspur",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Für reine Audio- oder Videoaufnahmen eine gleichwertige zugängliche Alternative prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.2.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.2.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Untertitel für Aufzeichnungen",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Untertitel vollständig ansehen und Sprache, Geräusche sowie Sprecherwechsel abgleichen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.2.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.2.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Audiodeskription oder Medienalternative",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Visuelle Informationen einer Aufzeichnung mit Audiodeskription oder vollständiger Medienalternative vergleichen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.2.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.2.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Live-Untertitel",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Live-Angebote auf verfügbare und verständliche Untertitel prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.2.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.2.5",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Audiodeskription für Aufzeichnungen",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Prüfen, ob wichtige visuelle Informationen im Ton oder einer Audiodeskription enthalten sind.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.2.5",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.3.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Struktur und Beziehungen",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Überschriften, Listen, Tabellen, Gruppen und Formularbeschriftungen mit Screenreader prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.3.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.3.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Sinnvolle Reihenfolge",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Lesereihenfolge ohne Gestaltung und mit Screenreader mit der Bedeutung vergleichen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.3.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.3.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Sensorische Hinweise",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Anweisungen dürfen nicht allein auf Position, Form, Farbe oder Klang beruhen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.3.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.3.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Bildschirmausrichtung",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Hoch- und Querformat testen; Einschränkungen auf sachliche Notwendigkeit prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.3.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.3.5",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Zweck persönlicher Eingaben",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Eingabefelder für persönliche Daten auf passende programmatische Zweckangaben prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.3.5",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.4.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Farbe als Information",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Fehler, Links und Zustände müssen auch ohne Farbwahrnehmung unterscheidbar sein.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.4.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.4.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Automatisch startender Ton",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Automatischen Ton auf Abschaltmöglichkeit oder unabhängige Lautstärkeregelung prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.4.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.4.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Textkontrast",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Text einschließlich Platzhaltern und Interaktionszuständen gegen den tatsächlichen Hintergrund prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.4.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.4.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Textvergrößerung",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Text auf 200 Prozent vergrößern; Inhalte und Funktionen müssen nutzbar bleiben.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.4.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.4.5",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Schriftgrafiken",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Text in Bildern auf vermeidbare Verwendung und zulässige Ausnahmen prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.4.5",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.4.10",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Umbruch bei Vergrößerung",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Bei 320 CSS-Pixel Breite beziehungsweise 256 CSS-Pixel Höhe prüfen; sachliche Ausnahmen dokumentieren.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.4.10",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.4.11",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Kontrast von Grafik und Bedienung",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Grenzen, Zustände und bedeutungstragende Grafiken auf ausreichenden Kontrast prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.4.11",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.4.12",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Angepasste Textabstände",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Zeilenhöhe 1,5, Absatzabstand 2, Zeichenabstand 0,12 und Wortabstand 0,16 em ohne Verlust testen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.4.12",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.1.4.13",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Inhalte bei Hover und Fokus",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Zusatzinhalte auf Schließbarkeit, Erreichbarkeit mit Zeiger und dauerhafte Anzeige prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.1.4.13",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.1.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Tastaturbedienung",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Alle Funktionen mit Tastatur einschließlich Dialogen, Menüs und Formularen durchlaufen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.1.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.1.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Keine Tastaturfalle",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Jeden Bereich betreten und wieder verlassen; nötige besondere Tastenkombinationen müssen erklärt sein.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.1.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.1.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Einzelzeichen-Tastenkürzel",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Kürzel auf Abschaltbarkeit, Umbelegung oder Beschränkung auf fokussierte Komponenten prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.1.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.2.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Zeitbegrenzungen",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Sitzungen und Formulare auf Abschaltbarkeit, Anpassung oder rechtzeitige Verlängerung prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.2.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.2.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Bewegte und aktualisierte Inhalte",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Automatische Bewegung und Aktualisierung auf Pausieren, Stoppen oder Ausblenden prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.2.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.3.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Blitzende Inhalte",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Animationen und Videos auf gefährliche Blitzfolgen fachlich prüfen; nicht durch ungeschützte Betrachtung testen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.3.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.4.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Aussagekräftiger Seitentitel",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Titel auf verständliche Beschreibung von Thema und Zweck jeder Seite prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.4.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.4.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Fokusreihenfolge",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Tab-Reihenfolge und Fokusführung bei Dialogen sowie dynamischen Änderungen durchlaufen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.4.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.4.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Linkzweck im Kontext",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Links mit Screenreader lesen und ihren Zweck aus Text und programmatischem Kontext bestimmen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.4.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.4.6",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Überschriften und Beschriftungen",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Überschriften und Labels müssen Thema beziehungsweise Zweck verständlich beschreiben.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.4.6",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.4.7",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Sichtbarer Tastaturfokus",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Alle interaktiven Elemente mit Tastatur durchlaufen und den sichtbaren Fokus kontrollieren.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.4.7",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.5.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Einfache Zeigergesten",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Mehrfinger- und Pfadgesten auf gleichwertige einfache Zeigerbedienung prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.5.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.5.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Abbrechbare Zeigereingaben",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Auslösen beim Drücken prüfen; Abbrechen oder Rückgängigmachen muss im erforderlichen Umfang möglich sein.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.5.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.5.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Sichtbare Beschriftung im Namen",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Sichtbaren Text mit dem zugänglichen Namen vergleichen und Sprachbedienung erproben.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.5.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.2.5.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Bewegungssteuerung",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Durch Gerätebewegung ausgelöste Funktionen auf Alternative und Abschaltbarkeit prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.2.5.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.3.1.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Seitensprache",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Programmatisch gesetzte Hauptsprache mit dem Inhalt und der Screenreader-Aussprache vergleichen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.3.1.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.3.1.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Sprachwechsel",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Anderssprachige Abschnitte auf korrekte Sprachauszeichnung prüfen; Ausnahmen berücksichtigen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.3.1.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.3.2.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Verhalten beim Fokussieren",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Fokus allein darf keinen unerwarteten Kontextwechsel auslösen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.3.2.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.3.2.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Verhalten bei Eingaben",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Eingaben und Auswahländerungen auf angekündigte beziehungsweise vermeidbare Kontextwechsel prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.3.2.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.3.3.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Fehler erkennen",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Ungültige Eingaben absenden und verständliche textliche Fehlerzuordnung prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.3.3.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.3.3.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Labels und Hinweise",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Erforderliche Formate, Pflichtfelder und Eingabehinweise vor der Eingabe prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.3.3.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.3.3.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Korrekturvorschläge",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Fehlersituationen erzeugen und hilfreiche Korrekturhinweise prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.3.3.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.3.3.4",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Fehler bei wichtigen Vorgängen vermeiden",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Rechtliche, finanzielle und relevante Datenänderungen auf Rücknahme, Kontrolle oder Bestätigung prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.3.3.4",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.4.1.1",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Syntax und Parsing",
+      "guidance": "Dokumentsyntax separat nach EN 10.4.1.1 prüfen; das Web-Scanergebnis ist dafür kein Nachweis.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.4.1.1",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.4.1.2",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Name, Rolle und Wert",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Eigene Komponenten mit Accessibility Tree und Screenreader auf Namen, Rolle, Werte und Zustandsänderungen prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.4.1.2",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    },
+    {
+      "id": "10.4.1.3",
+      "standard": "EN 301 549 V3.2.1",
+      "level": "Dokument",
+      "title": "Dokument: Statusmeldungen",
+      "guidance": "Separater manueller Prüfauftrag je Dokument. Die dokumentbezogenen Anpassungen und Ausnahmen der angegebenen EN-Klausel beachten; dieser Scanner untersucht nur HTML. Prüfhilfe: Erfolg, Fehler, Fortschritt und Aktualisierungen ohne Fokuswechsel mit Screenreader prüfen.",
+      "condition": "Herunterladbare Dokumente oder Formulare mit entsprechenden Inhalten oder Funktionen",
+      "source": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "enClause": "10.4.1.3",
+      "status": "unreviewed",
+      "notes": "",
+      "findings": []
+    }
+  ],
+  "limitations": [
+    "Automatische Momentaufnahme; kein Nachweis vollständiger WCAG-Konformität.",
+    "Tastaturbedienung, Screenreader, sinnvolle Texte und komplette Nutzerabläufe manuell prüfen.",
+    "Nur entdeckte HTML-Links derselben Origin; keine Anmeldung, Formularaktionen, Sitemap oder SPA-Zustandsnavigation.",
+    "Eine Desktop-Ansicht; dynamische Inhalte nur nach der eingestellten Wartezeit. Cross-Origin-Frames können unvollständig sein."
+  ]
+}

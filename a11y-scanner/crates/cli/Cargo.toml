@@ -1,0 +1,15 @@
+[package]
+name = "a11y-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "a11y"
+path = "src/main.rs"
+
+[dependencies]
+a11y-engine = { path = "../engine" }
+anyhow.workspace = true
+serde_json.workspace = true
+clap = { version = "4", features = ["derive"] }

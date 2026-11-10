@@ -1,0 +1,36 @@
+# Dependencies and build output (all workspace packages)
+node_modules/
+/target/
+/dist/
+/desktop/src-tauri/target/
+/desktop/src-tauri/gen/
+
+# Scan reports may contain website content and personal data.
+# Keep the curated, local-fixture examples in examples/ versioned.
+/reports/
+/playwright-report/
+/test-results/
+/coverage/
+*.log
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+/.aws/
+
+# Editor and operating-system files
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~

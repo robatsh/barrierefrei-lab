@@ -1,0 +1,19 @@
+{
+  "name": "a11y-browser-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test test/unit.test.mjs test/coverage.test.mjs test/i18n.test.mjs test/references.test.mjs",
+    "test:browser": "node --test test/browser.test.mjs",
+    "test:cli": "node --test test/cli.test.mjs",
+    "test:desktop": "node --test test/desktop.test.mjs",
+    "test:report-ui": "node --test test/report-ui.test.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.56.0",
+    "axe-core": "^4.11.0"
+  },
+  "devDependencies": { "ajv": "^8.17.1" }
+}

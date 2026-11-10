@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="text001">A11y Scanner</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header><span class="brand" data-i18n="text002">A11y Scanner</span></header>
+  <main>
+    <nav class="app-nav" aria-label="Hauptnavigation" data-i18n-aria-label="attribute001">
+      <button type="button" data-view="projects" aria-current="page" data-i18n="text004">Projekte</button>
+      <button type="button" data-view="overview" data-i18n="text005">Übersicht</button>
+      <button type="button" data-view="scan" data-i18n="text006">Website prüfen</button>
+      <button type="button" data-view="improvements" data-i18n="text007">Verbesserungen</button>
+      <button type="button" data-view="checklist" data-i18n="text008">Manuelle Checkliste</button>
+    </nav>
+    <aside class="project-context" aria-label="Projektstatus" data-i18n-aria-label="project.status">
+      <div id="active-project" role="status" aria-live="polite"></div>
+      <button type="button" id="change-project" data-view="projects" data-i18n="project.choose">Projekt auswählen</button>
+    </aside>
+    <section id="scan-progress" class="scan-progress" hidden aria-label="Laufende Prüfung">
+      <div class="scan-progress-heading"><strong data-i18n="scan.running">Website wird geprüft</strong><span id="scan-elapsed" class="muted" aria-live="off"></span></div>
+      <div class="scan-progress-track" role="progressbar" aria-label="Website wird geprüft"><span></span></div>
+    </section>
+    <p id="storage-status" role="status" class="muted"></p>
+    <section data-screen="projects" aria-labelledby="projects-heading">
+      <h1 id="projects-heading" tabindex="-1" data-i18n="text009">Projekte</h1>
+      <form id="project-form" class="panel">
+        <h2 data-i18n="text011">Neues Projekt</h2>
+        <label for="project-name" data-i18n="text012">Projektname</label><input id="project-name" required maxlength="100" placeholder="Meine Website" data-i18n-placeholder="attribute002">
+        <label for="project-url" data-i18n="text013">Website-Adresse</label><input id="project-url" type="url" required placeholder="https://example.org">
+        <button type="submit" data-i18n="text014">Projekt anlegen</button>
+      </form>
+      <p id="project-feedback" role="status"></p>
+      <div id="project-list"></div>
+    </section>
+    <dialog id="delete-dialog" aria-labelledby="delete-heading" aria-describedby="delete-description">
+      <h2 id="delete-heading" data-i18n="text015">Projekt löschen?</h2><p id="delete-description"></p>
+      <div class="actions"><button id="cancel-delete" type="button" autofocus data-i18n="text016">Abbrechen</button><button id="confirm-delete" class="danger" type="button" data-i18n="text017">Projekt endgültig löschen</button></div>
+    </dialog>
+    <section id="overview" data-screen="overview" hidden aria-labelledby="overview-heading">
+      <h1 id="overview-heading" tabindex="-1" data-i18n="text018">Übersicht</h1>
+      <div id="welcome" class="panel"><h2 data-i18n="text020">Noch keine Prüfung</h2><p data-i18n="text021">Website prüfen, um Befunde und manuelle Prüfpunkte zu erhalten.</p><button type="button" data-view="scan" data-i18n="text022">Prüfung starten</button></div>
+      <div id="dashboard" hidden>
+        <p id="scan-meta" class="muted"></p><div id="dashboard-summary" class="summary"></div>
+        <section class="panel"><h2 data-i18n="text023">Priorisierte Aufgaben</h2><p id="next-step"></p><div id="top-tasks"></div><button type="button" data-view="improvements" data-i18n="text024">Alle Verbesserungen ansehen</button></section>
+        <section class="panel"><h2 data-i18n="text025">Bearbeitungsstand</h2><p id="task-progress"></p><p id="comparison"></p><button type="button" data-view="scan" data-i18n="text026">Website erneut prüfen</button></section>
+        <p data-i18n="text027">Automatische Befunde durch die manuelle Checkliste ergänzen.</p>
+      </div>
+    </section>
+    <section data-screen="scan" hidden aria-labelledby="scan-title">
+    <h1 id="scan-title" data-i18n="text028">Website prüfen</h1>
+    <section class="panel" aria-labelledby="scan-heading">
+      <h2 id="scan-heading" class="sr-only" data-i18n="text006">Website prüfen</h2>
+      <form id="scan-form">
+        <label for="url" data-i18n="text030">Start-URL</label>
+        <input id="url" type="url" required placeholder="https://example.org" aria-describedby="scope-note">
+        <details><summary data-i18n="text031">Erweiterte Einstellungen</summary><div class="settings">
+          <label>Max. Seiten<input id="max-pages" type="number" min="1" max="100" value="10" required></label>
+          <label>Linktiefe<input id="max-depth" type="number" min="0" max="5" value="2" required></label>
+          <label>Zeitlimit pro Seite (ms)<input id="timeout" type="number" min="1000" max="60000" value="15000" required></label>
+          <label>Wartezeit nach Laden (ms)<input id="settle" type="number" min="0" max="5000" value="300" required></label>
+        </div>
+        </details><p id="scope-note" class="muted" data-i18n="text032">Geprüft werden verlinkte Seiten derselben Website.</p>
+        <button id="start" type="submit" data-i18n="text033">Prüfung starten</button>
+      </form>
+      <p id="status" role="status" aria-live="polite" data-i18n="text034">Bereit.</p>
+      <p id="error" role="alert" hidden></p>
+    </section>
+    </section>
+    <section id="results" hidden aria-labelledby="results-heading">
+      <div class="result-header"><h2 id="results-heading" tabindex="-1" data-i18n="text035">Prüfbericht</h2><div class="actions"><button id="export-json" type="button" data-i18n="text036">JSON speichern</button><button id="export-html" type="button" data-i18n="text037">HTML speichern</button></div></div>
+      <section data-screen="improvements" hidden aria-labelledby="improvements-heading"><h2 id="improvements-heading" tabindex="-1" data-i18n="text038">Verbesserungen</h2><p data-i18n="text039">Nach Auswirkung und Anzahl betroffener Elemente sortiert.</p><div id="tasks"></div><details class="panel"><summary data-i18n="text040">Technische Befunde nach Seite</summary>
+      <div id="summary" class="summary"></div>
+      <p id="scope-summary" class="muted"></p>
+
+      <h3 id="findings-heading" data-i18n="text041">Befunde nach Seite</h3>
+      <label for="search" data-i18n="text042">Seiten oder Befunde suchen</label><input id="search" type="search" placeholder="URL, Regel, WCAG-Kennung oder Beschreibung" data-i18n-placeholder="attribute003">
+      <label for="filter" data-i18n="text043">Befunde anzeigen</label>
+      <select id="filter"><option value="all" data-i18n="text044">Alle Befunde</option><option value="violations" data-i18n="text045">Automatische Fehler</option><option value="incomplete" data-i18n="text046">Manuell prüfen</option></select>
+      <div id="pages"></div>
+      <div class="pagination"><button id="previous" type="button" data-i18n="text047">Vorherige Seiten</button><span id="page-count" role="status"></span><button id="next" type="button" data-i18n="text048">Weitere Seiten</button></div>
+      </details></section>
+      <section data-screen="checklist" hidden aria-labelledby="checklist-heading"><h2 id="checklist-heading" tabindex="-1" data-i18n="text008">Manuelle Checkliste</h2><p data-i18n="text049">Ergebnisse und Nachweise für die geprüften Seiten dokumentieren.</p><div id="guided-checks"></div>
+      <details class="panel"><summary data-i18n="text050">Vollständiger Prüfkatalog und Nachweise</summary>
+        <h3 id="coverage-heading" data-i18n="text051">Prüfkatalog und manuelle Bewertung</h3>
+        <p data-i18n="text052">WCAG 2.1 A/AA und zusätzliche Web-Anforderungen aus EN 301 549 V3.2.1. Automatische Regeln prüfen nur Teilaspekte. Ohne Befund bleibt die manuelle Prüfung offen. Parsing 4.1.1 bleibt für diese EN-Version enthalten. Kapitel 10 enthält einzelne manuelle Prüfaufträge für Dokumente; Dokumente werden nicht automatisch untersucht.</p>
+        <p data-i18n="text053">Bewertungen gelten für die dokumentierte Stichprobe. Bei „erfüllt“ oder „nicht anwendbar“ Nachweis oder Begründung angeben.</p>
+        <p id="coverage-progress" role="status"></p>
+        <div class="settings">
+          <label>Prüfpunkt suchen<input id="criteria-search" type="search" placeholder="Nummer oder Thema" data-i18n-placeholder="attribute004"></label>
+          <label>Standard<select id="standard-filter"><option value="all" data-i18n="text054">Alle Standards</option><option data-i18n="text055">WCAG 2.1</option><option data-i18n="text056">EN 301 549 V3.2.1</option></select></label>
+          <label>Bewertung<select id="criteria-filter"><option value="all" data-i18n="text057">Alle Bewertungen</option><option value="unreviewed" data-i18n="text058">Offen</option><option value="failed" data-i18n="text059">Nicht erfüllt</option><option value="passed" data-i18n="text060">Manuell erfüllt</option><option value="notApplicable" data-i18n="text061">Nicht anwendbar</option></select></label>
+        </div>
+        <div id="criteria"></div>
+        <div class="pagination"><button id="criteria-previous" type="button" data-i18n="text062">Vorherige Prüfpunkte</button><span id="criteria-count" role="status"></span><button id="criteria-next" type="button" data-i18n="text063">Weitere Prüfpunkte</button></div>
+        <details><summary data-i18n="text064">Normquellen und Umfang</summary><p><a href="https://www.w3.org/TR/WCAG21/" data-i18n="text065">WCAG 2.1 beim W3C</a> · <a href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf" data-i18n="text066">EN 301 549 V3.2.1 bei ETSI</a></p><p data-i18n="text067">Eigene Prüfhilfen, kein offizieller BIK-Test. Zusätze sind nach Anwendbarkeit manuell zu bewerten; keine automatische Prüfung von Echtzeitkommunikation, Dokumenten, Editoren oder Support.</p></details>
+      </details></section>
+      <details class="panel"><summary id="limits-heading" data-i18n="text068">Grenzen der Prüfung</summary><ul id="limitations"></ul></details>
+    </section>
+  </main>
+</body>
+</html>
