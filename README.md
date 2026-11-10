@@ -1,4 +1,4 @@
-﻿# barrieretool
+﻿# barrierefrei-lab
 
 Werkzeuge zur Untersuchung digitaler Barrierefreiheit.
 
