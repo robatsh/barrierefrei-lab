@@ -25,4 +25,6 @@ Für CLI-Integration zuerst `cargo build --locked -p a11y-cli`, danach `npm run 
 
 Problem, erwartetes und tatsächliches Verhalten sowie ausgeführte Prüfungen beschreiben. Bei UI-Änderungen geeignete Screenshots ergänzen. Reproduktionsbeispiele möglichst mit der lokalen Fixture-Website erstellen. Keine Zugangsdaten, privaten Website-Inhalte oder ungeprüften Scanberichte hochladen.
 
-Lockdateien bei Abhängigkeitsänderungen mit aktualisieren. Generierte Laufzeitdateien bleiben außerhalb von Git. Beiträge unterliegen der MIT-Lizenz des Projekts.
+Lockdateien bei Abhängigkeitsänderungen mit aktualisieren. Generierte Laufzeitdateien bleiben außerhalb von Git.
+
+Beiträge werden unter der [MIT-Lizenz](LICENSE) des Projekts eingereicht. Stelle sicher, dass du die nötigen Rechte besitzt. Fremdcode und dessen Lizenzbedingungen kennzeichnen.

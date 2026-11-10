@@ -31,4 +31,10 @@ Vor einem Push das gewünschte Ziel-Repository und den tatsächlichen Branchname
 
 ## Umfang
 
-`node_modules/`, `target/`, `dist/`, Tauri-generierte Dateien, Testausgaben und `reports/` sind ausgeschlossen. Releasepakete separat als Release-Artefakte verteilen. Icons, Screenshots, Schema und Fixture-Beispiele bleiben Teil des Quellcodes. Die vorhandene MIT-Lizenz bleibt erhalten.
+`node_modules/`, `target/`, `dist/`, Tauri-generierte Dateien, Testausgaben und `reports/` sind ausgeschlossen. Releasepakete separat als Release-Artefakte verteilen. Icons, Screenshots, Schema und Fixture-Beispiele bleiben Teil des Quellcodes.
+
+## Lizenz und Entwicklungshinweise
+
+`LICENSE` und `NOTICE.md` mit veröffentlichen. Sie enthalten die MIT-Lizenz, KI-Entwicklungshinweise und Hinweise zu Prüfgrenzen und Haftung. MIT erlaubt auch kommerzielle Nutzung und den Einbau in andere Projekte. Lizenztext und Urhebervermerk erhalten. Fremdkomponenten behalten ihre eigenen Lizenzbedingungen. Das Windows-Release-Skript liefert beide Dateien mit.
+
+Die README eine Ebene über dem Projekt ebenfalls auf konsistente MIT-Lizenzangaben prüfen.

@@ -43,6 +43,7 @@ Set-Content -LiteralPath "$output/Start-A11y-Scanner.cmd" -Value $launcher -Enco
 $cli = $launcher.Replace('"%~dp0a11y-desktop.exe"', '"%~dp0a11y.exe" %*')
 Set-Content -LiteralPath "$output/Scan-Kommandozeile.cmd" -Value $cli.Substring(0, $cli.IndexOf('if errorlevel')) -Encoding ascii
 Copy-Item -LiteralPath "$root/LICENSE" -Destination $output
+Copy-Item -LiteralPath "$root/NOTICE.md" -Destination $output
 & $node -p 'process.release' | Set-Content -LiteralPath "$output/runtime/node-version.txt"
 $nodeVersion = & $node --version
 $cachedLicense = Join-Path $PSScriptRoot "licenses/node-$nodeVersion-LICENSE.txt"
@@ -67,6 +68,11 @@ Die App ist nicht digital signiert.
 Projekte werden im lokalen App-Speicher des jeweiligen Windows-Benutzers gesichert.
 Fuer eine weitergebbare Sicherung Berichte als JSON/HTML exportieren.
 Automatische Scans ersetzen keine manuelle Barrierefreiheitspruefung.
+
+Mit Unterstuetzung kuenstlicher Intelligenz entwickelt.
+Open Source unter MIT: private und kommerzielle Nutzung, Weiterentwicklung,
+Weitergabe und Einbau in andere Projekte erlaubt. Lizenztext und Urhebervermerk
+erhalten. Bedingungen und Haftungsausschluss: LICENSE. Hinweise: NOTICE.md.
 
 Optional im Terminal: Scan-Kommandozeile.cmd https://example.org --output reports
 Lizenzen: LICENSE, runtime/LICENSE.txt, browser/node_modules/*/LICENSE*,

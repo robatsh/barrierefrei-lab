@@ -1,6 +1,8 @@
 # A11y Scanner
 
-Lokaler Barrierefreiheitsscanner mit Rust-CLI, Tauri-Desktop-App und Playwright/axe-core. Entwicklungsstand: Prototyp (0.1.0). Lizenz: [MIT](LICENSE).
+Lokaler Barrierefreiheitsscanner mit Rust-CLI, Tauri-Desktop-App und Playwright/axe-core. Entwicklungsstand: Prototyp (0.1.0). Open Source unter der [MIT-Lizenz](LICENSE).
+
+Mit Unterstützung künstlicher Intelligenz entwickelt. Private und geschäftliche Nutzung, Weiterentwicklung, Weitergabe und Einbau in andere Projekte sind erlaubt, auch kommerziell. Details und Haftungshinweise: [Entwicklungs- und Nutzungshinweise](NOTICE.md).
 
 [Installation](#installation) · [Tests und Builds](#tests-und-builds) · [Mitwirken](CONTRIBUTING.md) · [Git-Veröffentlichung](docs/git-publication.md)
 
@@ -188,4 +190,6 @@ Weitere Schritte: [MVP-Plan](docs/roadmap.md). APIs: [Playwright](https://playwr
 
 Quellcode, Lockdateien, Schema, App-Icons und die kuratierten Beispiele werden versioniert. Abhängigkeiten, Buildausgaben, lokale Berichte und Zugangsdaten bleiben ausgeschlossen. Die Beispiele stammen aus der lokalen Fixture-Website; eigene Scanberichte können vertrauliche Inhalte enthalten.
 
-Der Projektcode steht unter der [MIT-Lizenz](LICENSE). Abhängigkeiten besitzen eigene Lizenzen; das Windows-Release-Skript legt die zugehörigen Lizenzdateien dem Ausgabeordner bei. Hinweise zum Mitwirken stehen in [CONTRIBUTING.md](CONTRIBUTING.md), die Vorbereitung der ersten Veröffentlichung in [docs/git-publication.md](docs/git-publication.md).
+Der Projektcode steht unter der [MIT-Lizenz](LICENSE). Sie erlaubt auch kommerzielle Nutzung, Verkauf und Integration in andere Projekte. Urheberrechtsvermerk und Lizenztext müssen in Kopien oder wesentlichen Teilen erhalten bleiben. Gewährleistungs- und Haftungsausschluss stehen in der Lizenz; ergänzende Hinweise in [NOTICE.md](NOTICE.md).
+
+Abhängigkeiten besitzen eigene Lizenzen; das Windows-Release-Skript legt die zugehörigen Lizenzdateien und Entwicklungshinweise dem Ausgabeordner bei. Hinweise zum Mitwirken stehen in [CONTRIBUTING.md](CONTRIBUTING.md), die Vorbereitung der Veröffentlichung in [docs/git-publication.md](docs/git-publication.md).
